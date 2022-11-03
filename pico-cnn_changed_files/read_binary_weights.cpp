@@ -26,7 +26,8 @@ float bit_change(float x, int n){
     return result;
 }
 
-int32_t read_binary_weights(const char* path_to_weights_file, pico_cnn::naive::Tensor ***kernels, pico_cnn::naive::Tensor ***biases) {
+
+int32_t read_binary_weights(const char* path_to_weights_file, char* weight_bit, pico_cnn::naive::Tensor ***kernels, pico_cnn::naive::Tensor ***biases) {
 
     FILE *binary_file;
     binary_file = fopen(path_to_weights_file, "r"); //weights_file open
@@ -172,9 +173,12 @@ int32_t read_binary_weights(const char* path_to_weights_file, pico_cnn::naive::T
                             }*/
 
                             //printf("before weight : %f\n", values[0]);
-			    
+                            int weight_bit_int = atoi(weight_bit);
+                            
+                            // printf("wieght_bit : %d", weight_bit_int);
+                            
                             for (uint32_t i=0; i<sizeof(values); i++){
-                                values[i] = bit_change(values[i], 16);
+                                values[i] = bit_change(values[i], weight_bit_int);
                             }
                             
                             //printf("after weight : %f\n", values[0]);
