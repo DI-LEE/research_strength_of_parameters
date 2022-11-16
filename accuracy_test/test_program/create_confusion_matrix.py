@@ -1,7 +1,8 @@
+# -*- coding: utf-8 -*-
 from sklearn import metrics
 
-test_label_path = "/home/dilee/Desktop/pico-cnn_research/accuracy_test/test_label/test_label.txt"
-predict_label_path = "/home/dilee/Desktop/pico-cnn_research/accuracy_test/test_program/predict_label.txt"
+test_label_path = "/home/dilee/Desktop/val5000_label.txt"
+predict_label_path = "/home/dilee/Desktop/pico-cnn_research/accuracy_test/test_program/alexnet_10000/predict_label_8bit.txt"
 
 #실제 라벨을 리스트로 변환
 with open(test_label_path) as f:
@@ -13,6 +14,9 @@ with open(predict_label_path) as f:
 
 # print(test_label)
 # print(predict_label)
+
+#test_label = [1,2,3,4]
+#predict_label = [1,2,3,5]
 
 confusion_matrix = metrics.confusion_matrix(test_label, predict_label)
 
