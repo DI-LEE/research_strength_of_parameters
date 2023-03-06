@@ -1,8 +1,6 @@
 # Research about strength of parameters for accuracy in CNN
 Research in System Software Research Laboratory https://sites.google.com/view/limseungho
 
-## 연구 제목: 마지막 비트를 0으로 바꾸는 작업이 모델 정확도에 미치는 영향
-
 ### 배경
 
 딥러닝 모델을 실제 임베디드 시스템에 이식하는 경우, 모델의 크기와 속도가 중요한 문제가 된다. 이를 해결하기 위해 가장 간단한 방법은 모델의 파라미터를 줄이는 것이다. 이에 따라, 가중치 값의 비트를 줄이는 연구를 수행했다.
