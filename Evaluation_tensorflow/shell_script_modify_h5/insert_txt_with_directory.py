@@ -5,7 +5,7 @@ import sys
 # 원본 폴더와 대상 폴더 경로 설정
 filename = sys.argv[1]
 
-src_folder = './shift/' +'saveorigin_' + filename + '_only_txt'
+src_folder = './shift'
 dst_folder = 'saveshift_' + filename
 
 # src_folder = 'save_incepRes_origin_only_txt'
@@ -19,7 +19,7 @@ if not os.path.exists(dst_folder):
 for root, _, files in os.walk(src_folder):
     for filename in files:
         # txt 파일인 경우만 선택
-        if filename.endswith('.txt') and filename[:4] == 'shift':
+        if filename.endswith('.txt') :# and filename[:4] == 'shift':
             src_file_path = os.path.join(root, filename)
             # 저장될 파일이름 설정(앞의 폴더이름 지우기)
             # __를 / 로 바꾸기

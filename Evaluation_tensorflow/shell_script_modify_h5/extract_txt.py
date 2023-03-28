@@ -14,7 +14,7 @@ dst_folder = 'saveorigin_' + filename + '_only_txt'
 if not os.path.exists(dst_folder):
     os.makedirs(dst_folder)
 
-dst_folder_shift = './shift/' +'saveorigin_' + filename + '_only_txt'
+dst_folder_shift = './shift/'
 # 대상 폴더가 없으면 새로 생성
 if not os.path.exists(dst_folder_shift):
     os.makedirs(dst_folder_shift)

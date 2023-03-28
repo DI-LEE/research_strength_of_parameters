@@ -62,6 +62,7 @@ void process_directory(const char* folder_path, int bit) {
             snprintf(input_path, sizeof(input_path), "%s/%s", folder_path, entry->d_name);
 	    strncpy(temp, folder_path, 1024);
 	    RemoveFirst(temp);
+    	    strcpy(temp, "./shift");
             snprintf(output_path, sizeof(output_path), "%s/%s", temp, entry->d_name);
             process_file(input_path, output_path, bit);
         }
@@ -69,16 +70,19 @@ void process_directory(const char* folder_path, int bit) {
 
     closedir(dir);
 }
-
 int main(int argc, char* argv[]) {
+printf("\n1");
     int bit = atoi(argv[2]);
     //const char* folder_path = "./shift/saveorigin" + argv[1] + "only_txt";
 
     char folder_path[100];
-    strcpy(folder_path, "./shift/saveorigin_");
+    //strcpy(folder_path, "./shift/saveorigin_");
+    strcpy(folder_path, "./saveorigin_");
     strcat(folder_path, argv[1]);
     strcat(folder_path, "_only_txt");
+printf("\n1");
     
     process_directory(folder_path, bit);
+printf("\n1");
     return 0;
 }
