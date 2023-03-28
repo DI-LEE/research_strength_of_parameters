@@ -1,6 +1,6 @@
 #!/bin/bash
 
-c
+filename=inception_resnet_v2_weights_tf_dim_ordering_tf_kernels.h5
 
 # Execute Read_and_save_h5.py
 python3 Read_and_save_h5.py $filename
