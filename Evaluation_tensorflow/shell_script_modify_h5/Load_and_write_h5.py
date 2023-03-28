@@ -2,12 +2,13 @@ import h5py
 import numpy as np
 import os
 import sys
+import shutil
 
 filename = sys.argv[1]
 bit = sys.argv[2]
 
-filename_write = filename[:-3] + '(copy).h5'
-save_folder = 'saveshift' + filename
+filename_write = filename[:-3] + ' (copy).h5'
+save_folder = 'saveshift_' + filename
 
 
 # filename = 'inception_resnet_v2_weights_tf_dim_ordering_tf_kernels.h5'
@@ -47,6 +48,6 @@ with h5py.File(filename, 'r+') as f:
     f.visititems(traverse_datasets)
 
 shifted_h5 = filename_write
-shifted_h5_newname = filename[:-3] + bit + '.h5'
-
-os.rename(shifted_h5, shifted_h5_newname)
+shifted_h5_newname = filename[:-3]+ '_' + bit + 'bit.h5'
+shutil.copy2(shifted_h5, shifted_h5_newname)
+# os.rename(shifted_h5, shifted_h5_newname)

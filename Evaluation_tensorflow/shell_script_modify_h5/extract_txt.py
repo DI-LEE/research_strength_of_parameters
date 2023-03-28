@@ -6,19 +6,18 @@ import sys
 # 원본 폴더와 대상 폴더 경로 설정
 filename = sys.argv[1]
 
-src_folder = 'saveorigin' + filename
-dst_folder = 'saveorigin' + filename + 'only_txt'
-dst_folder_shift = './shift/' +'saveorigin' + filename + 'only_txt'
+src_folder = 'saveorigin_' + filename
+dst_folder = 'saveorigin_' + filename + '_only_txt'
 
-# dst_folder_shift = './shift/save_incepRes_origin_only_txt'
 
 # 대상 path 없으면 새로 생성
 if not os.path.exists(dst_folder):
     os.makedirs(dst_folder)
 
+dst_folder_shift = './shift/' +'saveorigin_' + filename + '_only_txt'
 # 대상 폴더가 없으면 새로 생성
-if not os.path.exists(dst_folder):
-    os.mkdir(dst_folder)
+if not os.path.exists(dst_folder_shift):
+    os.makedirs(dst_folder_shift)
 
 # 원본 폴더 안의 모든 파일 검색
 for root, _, files in os.walk(src_folder):

@@ -47,7 +47,7 @@ void process_file(const char* input_path, const char* output_path, int bit) {
 void process_directory(const char* folder_path, int bit) {
     DIR *dir;
     struct dirent *entry;
-
+    // printf(folder_path);
     if ((dir = opendir(folder_path)) == NULL) {
         printf("Error opening directory\n");
         exit(1);
@@ -62,7 +62,7 @@ void process_directory(const char* folder_path, int bit) {
             snprintf(input_path, sizeof(input_path), "%s/%s", folder_path, entry->d_name);
 	    strncpy(temp, folder_path, 1024);
 	    RemoveFirst(temp);
-            snprintf(output_path, sizeof(output_path), "./shift%s/%s", temp, entry->d_name);
+            snprintf(output_path, sizeof(output_path), "%s/%s", temp, entry->d_name);
             process_file(input_path, output_path, bit);
         }
     }
@@ -75,9 +75,9 @@ int main(int argc, char* argv[]) {
     //const char* folder_path = "./shift/saveorigin" + argv[1] + "only_txt";
 
     char folder_path[100];
-    strcpy(folder_path, "./shift/saveorigin");
+    strcpy(folder_path, "./shift/saveorigin_");
     strcat(folder_path, argv[1]);
-    strcat(folder_path, "only_txt");
+    strcat(folder_path, "_only_txt");
     
     process_directory(folder_path, bit);
     return 0;

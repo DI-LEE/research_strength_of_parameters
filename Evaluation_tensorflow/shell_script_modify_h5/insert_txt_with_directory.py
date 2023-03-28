@@ -5,8 +5,8 @@ import sys
 # 원본 폴더와 대상 폴더 경로 설정
 filename = sys.argv[1]
 
-src_folder = './shift/' +'saveorigin' + filename + 'only_txt'
-dst_folder = 'saveshift' + filename
+src_folder = './shift/' +'saveorigin_' + filename + '_only_txt'
+dst_folder = 'saveshift_' + filename
 
 # src_folder = 'save_incepRes_origin_only_txt'
 # dst_folder = 'save_incepRes_shift'
