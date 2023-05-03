@@ -15,18 +15,11 @@ void RemoveFirst(char *buf) {
 
 float bit_change(float x, int n) {
     int tmp = *reinterpret_cast<int*>(&x);
-    int mask = (1 << n) - 1; // Create a mask with n bits set to 1
-    tmp |= mask; // Set the last n bits of the float to 1
+    int k = 32 - n;
+    tmp >>= k;
+    tmp <<= k;
     return *reinterpret_cast<float*>(&tmp);
 }
-
-// float bit_change(float x, int n) {
-//     int tmp = *reinterpret_cast<int*>(&x);
-//     int k = 32 - n;
-//     tmp >>= k;
-//     tmp <<= k;
-//     return *reinterpret_cast<float*>(&tmp);
-// }
 
 void process_file(const char* input_path, const char* output_path, int bit) {
     FILE *read = fopen(input_path, "r");
